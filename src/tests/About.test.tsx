@@ -5,7 +5,7 @@ import { renderWithRouter } from './utils/renderWithRouter';
 describe('Teste se na página about contém as informações sobre a Pokédex.', () => {
   it('A página contém um heading h2 com o texto About Pokédex', () => {
     renderWithRouter(<App />, { route: '/about' });
-    const headingEl = screen.getByRole('heading', { name: /about pokédex/i });
+    const headingEl = screen.getByRole('heading', { level: 2, name: /about pokédex/i });
     expect(headingEl).toBeInTheDocument();
   });
 
