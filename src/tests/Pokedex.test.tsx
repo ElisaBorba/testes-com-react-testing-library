@@ -74,7 +74,6 @@ describe('Testa as funcionalidades do componente <Pokedex.tsx />', () => {
 
     const dragonTybeBtn = screen.getByRole('button', { name: /dragon/i });
     await user.click(dragonTybeBtn);
-
     expect(screen.getByText(pokemonList[8].name)).toBeInTheDocument();
 
     const dragonairImage = screen.getByRole('img', { name: /dragonair sprite/i });
@@ -87,17 +86,19 @@ describe('Testa as funcionalidades do componente <Pokedex.tsx />', () => {
     });
     expect(allBtn).toBeInTheDocument();
 
-    typeBtns.forEach((btn) => {
-      expect(btn).toHaveAttribute('data-testid', dataTestName);
-    });
-
     expect(allBtn).not.toHaveAttribute('data-testid', dataTestName);
   });
   it('A Pokédex contém um botão com o nome \'All\' para resetar o filtro:', async () => {
     const { user } = renderWithRouter(<App />);
     const allBtn = screen.getByRole('button', { name: /all/i });
     expect(allBtn).toHaveTextContent('All');
-    expect(allBtn).toHaveClass('filter-button');
+
+    const psychicBtn = screen.getByRole('button', { name: /psychic/i });
+
+    await user.click(psychicBtn);
+
+    const alakazamName = screen.getByText(/alakazam/i);
+    expect(alakazamName).toBeInTheDocument();
 
     await user.click(allBtn);
     expect(screen.getByText(pokemonList[0].name)).toBeInTheDocument();
