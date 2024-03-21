@@ -9,7 +9,7 @@ describe('Teste as funcionalidades da página \'Favorite Pokémon\'', () => {
 
     expect(nonePokemonText).toBeInTheDocument();
   });
-  it('Se apenas são exibidos os Pokémon favoritados.', async () => {
+  it('Se é exibido apenas os Pokémon favoritados.', async () => {
     const { user } = renderWithRouter(<App />);
     const moreDetailsLink = screen.getByRole('link', { name: /more details/i });
     await user.click(moreDetailsLink);
