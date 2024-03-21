@@ -1,10 +1,30 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Testando aplicação com React Testing Library
+
+Este repositório contém um projeto para praticar testes utilizando a biblioteca React Testing Library. O projeto consiste em testar diversos componentes da aplicação Pokémon.
+
+## ⚙️ Funcionalidades
+* Navegação entre páginas.
+* Renderização de componentes.
+* Funcionalidades específicas de cada componente, conforme descrito no documento de requisitos.
+
+## 🛠 Tecnologias utilizadas
+
+* [React](https://reactjs.org/)
+* [Testing Library](https://testing-library.com/)
+
+
+1️⃣ Instale as dependências:
+```
+npm install
+```
+2️⃣ Inicie a aplicação:
+
+```
+npm run dev
+```
+3️⃣ Execute os testes:
+
+```
+npm test
+```
+Aproveite o projeto e bons testes! 🧪✨
