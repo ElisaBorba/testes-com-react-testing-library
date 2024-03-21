@@ -6,7 +6,7 @@ test('', () => {});
 
 describe('Testa se as informações detalhadas do Pokémon selecionado são mostradas na tela', () => {
   it('Existe um ícone de estrela somente nos Pokémon favoritados', async () => {
-    renderWithRouter(<App />, { route: '/pokemon/25' });
+    const { user } = renderWithRouter(<App />, { route: '/pokemon/25' });
 
     const title = screen.getByRole('heading', {
       name: /pikachu details/i,
@@ -24,11 +24,16 @@ describe('Testa se as informações detalhadas do Pokémon selecionado são most
     const locationA = screen.getByText(/kanto viridian forest/i);
     const locationB = screen.getByText(/kanto power plant/i);
     const locationMap = screen.getAllByAltText('Pikachu location');
-
+    expect(locationMap[1]).toBeInTheDocument();
     expect(locationMap[0]).toBeInTheDocument();
     expect(locationMap[0].getAttribute('src')).toBe(
       'https://archives.bulbagarden.net/media/upload/0/08/Kanto_Route_2_Map.png',
     );
+
+    const favorite = screen.getByRole('checkbox', {
+      name: /pokémon favoritado\?/i,
+    });
+
     expect(locationMap[0].getAttribute('alt')).toBe('Pikachu location');
     expect(locationB).toBeInTheDocument();
     expect(locationA).toBeInTheDocument();
@@ -36,5 +41,10 @@ describe('Testa se as informações detalhadas do Pokémon selecionado são most
     expect(summaryDescription).toBeInTheDocument();
     expect(summary).toBeInTheDocument();
     expect(title).toBeInTheDocument();
+    expect(favorite).toBeInTheDocument();
+    expect(favorite).not.toBeChecked();
+
+    await user.click(favorite);
+    expect(favorite).toBeChecked();
   });
 });
