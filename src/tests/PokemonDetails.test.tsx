@@ -6,20 +6,17 @@ test('', () => {});
 
 describe('Testa se as informações detalhadas do Pokémon selecionado são mostradas na tela', () => {
   it('Existe um ícone de estrela somente nos Pokémon favoritados', async () => {
-    const { user } = renderWithRouter(<App />, { route: '/pokemon/25' });
+    renderWithRouter(<App />, { route: '/pokemon/25' });
 
     const title = screen.getByRole('heading', {
       name: /pikachu details/i,
     });
-
     const summary = screen.getByRole('heading', {
       name: /summary/i,
     });
-
     const summaryDescription = screen.getByText(
-      /this intelligent pokémon roasts hard berries with electricity to make them tender enough to eat\./i
+      /this intelligent pokémon roasts hard berries with electricity to make them tender enough to eat\./i,
     );
-
     const gameTitle = screen.getByRole('heading', {
       name: /game locations of pikachu/i,
     });
@@ -30,10 +27,9 @@ describe('Testa se as informações detalhadas do Pokémon selecionado são most
 
     expect(locationMap[0]).toBeInTheDocument();
     expect(locationMap[0].getAttribute('src')).toBe(
-      'https://archives.bulbagarden.net/media/upload/0/08/Kanto_Route_2_Map.png'
+      'https://archives.bulbagarden.net/media/upload/0/08/Kanto_Route_2_Map.png',
     );
     expect(locationMap[0].getAttribute('alt')).toBe('Pikachu location');
-
     expect(locationB).toBeInTheDocument();
     expect(locationA).toBeInTheDocument();
     expect(gameTitle).toBeInTheDocument();
