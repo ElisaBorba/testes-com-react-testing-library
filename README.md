@@ -1,6 +1,6 @@
 # Testando aplicação com React Testing Library
 
-Este repositório contém um projeto para praticar testes utilizando a biblioteca React Testing Library. O projeto consiste em testar diversos componentes da aplicação Pokémon.
+Este repositório contém um projeto para praticar testes utilizando a biblioteca React Testing Library. No qual, consiste em testar diversos componentes da aplicação Pokémon.
 
 ## ⚙️ Funcionalidades
 * Navegação entre páginas.
